@@ -47,12 +47,21 @@ export default function Navbar() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <a
-                  href={link.path}
-                  className="text-white hover:text-purple-400 transition-colors"
-                >
-                  {link.name}
-                </a>
+                {link.path.startsWith('#') ? (
+                  <a
+                    href={link.path}
+                    className="text-white hover:text-purple-400 transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    to={link.path}
+                    className="text-white hover:text-purple-400 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                )}
               </motion.div>
             ))}
           </div>
@@ -86,8 +95,9 @@ export default function Navbar() {
 }
 
 const navLinks = [
-  { name: 'Ana Sayfa', path: '#' },
+  { name: 'Ana Sayfa', path: '/' },
   { name: 'Projeler', path: '#projects' },
   { name: 'Hakkımda', path: '#about' },
-  { name: 'İletişim', path: '#contact' }
+  { name: 'İletişim', path: '#contact' },
+  { name: 'Admin', path: '/admin' }
 ] 
