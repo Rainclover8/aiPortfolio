@@ -3,14 +3,14 @@ import { Canvas } from '@react-three/fiber'
 import { Stars } from '@react-three/drei'
 import { RetroComputer } from '../components/3d/RetroComputer'
 import { useInView } from 'react-intersection-observer'
-import { FaGithub, FaLinkedin, FaTwitter, FaCode, FaLaptopCode, FaMobileAlt } from 'react-icons/fa'
+import { FaGithub,FaMusic, FaLinkedin, FaInstagram, FaCar,FaClock } from 'react-icons/fa'
 import { BiCodeAlt } from 'react-icons/bi'
 import { GiBookshelf, GiGuitar } from 'react-icons/gi'
-import { SiJavascript, SiReact, SiNodedotjs, SiMongodb, SiThreedotjs } from 'react-icons/si'
+import { SiJavascript, SiReact, SiNodedotjs, SiMongodb, SiThreedotjs,SiSwift } from 'react-icons/si'
 import { Helmet } from 'react-helmet-async'
 import Navbar from '../components/Navbar'
 import ParticleBackground from '../components/ParticleBackground'
-
+import { SiTailwindcss, SiGithub, SiFigma } from 'react-icons/si'
 export default function Home() {
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -113,6 +113,9 @@ export default function Home() {
           </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {projects.map((project, index) => (
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+
+
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -136,6 +139,7 @@ export default function Home() {
                   </div>
                 </div>
               </motion.div>
+                </a>
             ))}
           </div>
         </div>
@@ -239,6 +243,7 @@ export default function Home() {
             <div className="flex space-x-4 sm:space-x-6">
               {socialLinks.map((link, index) => (
                 <motion.a
+                    target="_blank"
                   key={index}
                   href={link.url}
                   whileHover={{ scale: 1.2, rotate: 360 }}
@@ -271,26 +276,35 @@ const technologies = [
   { icon: SiNodedotjs, name: 'Node.js' },
   { icon: SiMongodb, name: 'MongoDB' },
   { icon: SiThreedotjs, name: 'Three.js' },
+  { icon: SiTailwindcss, name: 'Tailwind CSS' },
+  { icon: SiGithub, name: 'GitHub' },
+  { icon: SiFigma, name: 'Figma' },
+  { icon: SiSwift, name: 'swift' },
 ]
 
 const projects = [
   {
-    icon: FaLaptopCode,
-    title: "E-Ticaret Platformu",
-    description: "Modern ve kullanıcı dostu bir e-ticaret deneyimi",
-    technologies: ["React", "Node.js", "MongoDB"]
+    icon: FaMusic,
+    title: "Emojilerden Şarkı Tahmini",
+    description: "Modern ve kullanıcı dostu bir tahmin oyunu",
+    technologies: ["React", "Node.js", "MongoDB","figma","tailwind"],
+    link: "https://emojify-seven.vercel.app/"
   },
   {
-    icon: FaMobileAlt,
-    title: "Mobil Uygulama",
-    description: "Cross-platform mobil uygulama geliştirme",
-    technologies: ["React Native", "Firebase"]
+    icon: FaCar,
+    title: "Kurtarıcı",
+    description: "Araç kurtarıcısı sitesi",
+    technologies: ["React", "Figma", "Tailwind CSS"],
+    link: "https://www.karasuacicikurtarici.com/"
+
+
   },
   {
-    icon: FaCode,
-    title: "3D Web Deneyimi",
-    description: "Three.js ile interaktif 3D web uygulaması",
-    technologies: ["Three.js", "WebGL", "React"]
+    icon: FaClock,
+    title: "YKS süre sayacı",
+    description: "YKS Süre Sayacı, kullanıcı dostu",
+    technologies: ["React","Figma","Tailwind CSS"],
+    link: "https://yks-timer-nine.vercel.app/"
   }
 ]
 
@@ -303,7 +317,7 @@ const cards = [
   {
     icon: GiGuitar,
     title: "Müzik Tutkusu",
-    description: "Gitar ve müzik prodüksiyonu konusunda deneyimler"
+    description: "Gitar ve müzik konusunda deneyimler"
   },
   {
     icon: GiBookshelf,
@@ -313,7 +327,7 @@ const cards = [
 ]
 
 const socialLinks = [
-  { icon: FaGithub, url: "#", name: "GitHub" },
-  { icon: FaLinkedin, url: "#", name: "LinkedIn" },
-  { icon: FaTwitter, url: "#", name: "Twitter" }
+  { icon: FaGithub, url: "https://github.com/Rainclover8", name: "GitHub" },
+  { icon: FaLinkedin, url: "https://www.linkedin.com/in/cicekbaran/", name: "LinkedIn" },
+  { icon: FaInstagram, url: "https://www.instagram.com/baranncicek19/", name: "Instagram" }
 ] 
